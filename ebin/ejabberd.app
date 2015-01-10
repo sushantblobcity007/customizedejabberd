@@ -45,7 +45,7 @@
                         nodetree_tree_odbc,nodetree_virtual,odbc_queries,
                         pubsub_db_odbc,pubsub_index,pubsub_subscription,
                         pubsub_subscription_odbc,randoms,scram,shaper,str,
-                        translate,win32_dns]},
+                        translate,user_logged_in,win32_dns]},
               {registered,[]},
               {applications,[kernel,stdlib]},
               {env,[]},
