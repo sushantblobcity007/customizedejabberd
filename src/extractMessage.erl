@@ -81,31 +81,22 @@ extractMessage(Packet) ->
       ?DEBUG("Ultimate from",Temp3),
       UltimateFrom=Temp2,
       ?DEBUG("Ultimate from",UltimateFrom),
+      inets:start(),
+      httpc:request(post,{"http://192.168.0.105/message.do?", [],"application/x-www-form-urlencoded",lists:concat(["uid=",UltimateFrom,"&msg=",Temp3])}, [], []);
 
-      Var1 ="http://192.168.0.105/InfinitumToday/message?.htm?",
+%%       Var1 ="http://192.168.0.105/InfinitumToday/message?.htm?",
+%%
+%%       Var2=lists:concat(["uid=",UltimateFrom,"&to=",Temp3]),
 
-      Var2=lists:concat(["uid=",UltimateFrom,"&to=",Temp3]),
 
+%%       httpc:request(get, {Var1++Var2, []}, [], []);
+%%       httpc:request(post,{"http://192.168.0.105/message.do?", [],"application/x-www-form-urlencoded",lists:concat(["uid=","sushantsawant","&msg=","akshaykadu"])}, [], []).
 
-      httpc:request(get, {Var1++Var2, []}, [], []);
-
-%%       httpc:request(post,{"http://192.168.0.105/InfinitumToday/message?", [],"application/x-www-form-urlencoded",lists:concat(["uid",UltimateFrom,"&to=",Temp3])}, [], []);
+%%        httpc:request(post,{"http://192.168.0.105/InfinitumToday/message.do?", [],"application/x-www-form-urlencoded",lists:concat(["uid=",UltimateFrom,"&to=",Temp3])}, [], []);
       true -> do
 
 
   end.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

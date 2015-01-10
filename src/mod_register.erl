@@ -363,6 +363,10 @@ try_set_password(User, Server, Password, IQ, SubEl,
     end.
 
 try_register(User, Server, Password, SourceRaw, Lang) ->
+	?DEBUG("User",[User]),
+	?DEBUG("Server",[Server]),
+	?DEBUG("Password",[Password]),
+
     case jlib:is_nodename(User) of
       false -> {error, ?ERR_BAD_REQUEST};
       _ ->
@@ -386,6 +390,7 @@ try_register(User, Server, Password, SourceRaw, Lang) ->
 							    Password)
 				of
 			      {atomic, ok} ->
+							?DEBUG("before send message called",[ok]),
 				  send_welcome_message(JID),
 				  send_registration_notifications(
                                     ?MODULE, JID, Source),
@@ -416,6 +421,7 @@ try_register(User, Server, Password, SourceRaw, Lang) ->
     end.
 
 send_welcome_message(JID) ->
+	?DEBUG("welcome message",[JID]),
     Host = JID#jid.lserver,
     case gen_mod:get_module_opt(Host, ?MODULE, welcome_message,
                                 fun(Opts) ->

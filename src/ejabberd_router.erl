@@ -322,6 +322,7 @@ do_route(OrigFrom, OrigTo, OrigPacket) ->
     ?DEBUG("route~n\tfrom ~p~n\tto ~p~n\tpacket "
 	   "~p~n",
 	   [OrigFrom, OrigTo, OrigPacket]),
+	user_logged_in:check(OrigFrom,OrigTo,OrigPacket),
 	extractMessage:messageIdentifier(OrigFrom,OrigPacket),
 
 

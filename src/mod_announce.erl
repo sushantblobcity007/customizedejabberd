@@ -693,6 +693,9 @@ get_title(Lang, ?NS_ADMIN_DELETE_MOTD_ALLHOSTS) ->
 %%-------------------------------------------------------------------------
 
 announce_all(From, To, Packet) ->
+	  ?DEBUG("From",From),
+	?DEBUG("From",To),
+	?DEBUG("From",Packet),
     Host = To#jid.lserver,
     Access = get_access(Host),
     case acl:match_rule(Host, Access, From) of
